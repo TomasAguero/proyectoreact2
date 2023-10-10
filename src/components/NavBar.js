@@ -8,14 +8,14 @@ function Navbar() {
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
-            My Store
+            PBE IMPORTS.
           </Link>
         </Typography>
         <Button color="inherit" component={Link} to="/">
-          Home
+          Inicio
         </Button>
         <Button color="inherit" component={Link} to="/category/someCategoryId">
-          Category
+          Acerca de
         </Button>
       </Toolbar>
     </AppBar>
