@@ -1,17 +1,15 @@
 import React from 'react';
-import './css/ItemList.css';
-import { useParams } from 'react-router-dom';
+import Item from './Item';
 
-function ItemList() {
-  const { id } = useParams();
-
+const ItemList = ({ products }) => {
   return (
     <div className="item-list">
-      <h1>Category {id} Products</h1>
-
+      {products.map((product) => (
+        <Item key={product.id} product={product} />
+      ))}
     </div>
   );
-}
+};
 
 export default ItemList;
 

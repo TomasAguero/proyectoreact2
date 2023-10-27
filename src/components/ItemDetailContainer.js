@@ -1,33 +1,37 @@
-// src/components/ItemDetailContainer.js
+// itemdetailcontainer.js
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductById } from './mocks'; 
+import ItemDetail from './ItemDetail';
+import './ItemDetailContainer.css';
+import products from './products'; // Importa tu lista de productos
 
-function ItemDetailContainer() {
+const ItemDetailContainer = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+    // Buscar el producto por ID en tu lista de productos
+    const foundProduct = products.find((product) => product.id === id);
 
-    const productDetail = getProductById(id);
-    setProduct(productDetail);
+    if (foundProduct) {
+      setProduct(foundProduct);
+    } else {
+      setProduct(null);
+    }
   }, [id]);
 
   return (
-    <div>
+    <div className="item-detail-container">
       {product ? (
-        <div>
-          <h2>{product.name}</h2>
-          <p>Categoría: {product.category}</p>
-          <p>Descripción: {product.description}</p>
-          <p>Precio: ${product.price}</p>
-        </div>
+        <ItemDetail product={product} />
       ) : (
-        <p>Cargando...</p>
+        <p>El producto no se encuentra.</p>
       )}
     </div>
   );
-}
+};
 
 export default ItemDetailContainer;
+
+

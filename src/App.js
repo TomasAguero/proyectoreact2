@@ -1,19 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/NavBar';
-import Catalog from './components/Catalog';
-import ProductDetail from './components/ProductDetail';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import Checkout from './components/Checkout';
+import { CartProvider } from './components/CartContext';
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Catalog />} />
-        <Route path="/category/:id" element={<Catalog />} />
-        <Route path="/item/:id" element={<ProductDetail />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
