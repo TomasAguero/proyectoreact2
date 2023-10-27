@@ -15,14 +15,13 @@ const Checkout = () => {
   };
 
   const handlePurchase = () => {
-    // Agrega aquí tu lógica de compra (por ejemplo, una solicitud a una API)
-    // Aquí solo simularemos la compra con una animación
+
     setPurchased(true);
     setTimeout(() => {
       setPurchased(false);
-      // Limpia el carrito después de la compra
+
       dispatch({ type: 'CLEAR_CART' });
-    }, 2000); // Restablece purchased después de 2 segundos
+    }, 2000); 
   };
 
   const calculateTotal = () => {

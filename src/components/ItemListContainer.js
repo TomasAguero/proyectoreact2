@@ -23,14 +23,14 @@ const ItemListContainer = () => {
           name: "3 TERMOS CHARLYS 1LT!",
           description: "Descripción del producto 2",
           price: 20000.99,
-          image: termos1, 
+          image: termos1,
         },
         {
           id: 3,
           name: "TERMOS METALIZADOS 1,3LT!",
           description: "Descripción del producto 3",
           price: 21000.99,
-          image: termos2, 
+          image: termos2,
         },
       ];
       setProducts(mockProducts);

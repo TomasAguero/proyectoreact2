@@ -9,13 +9,13 @@ export const useCart = () => {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      // Lógica para agregar un producto al carrito
+
       return [...state, action.payload];
     case 'REMOVE_FROM_CART':
-      // Lógica para eliminar un producto del carrito
+
       return state.filter(item => item.id !== action.payload.id);
     case 'UPDATE_QUANTITY':
-      // Lógica para actualizar la cantidad de un producto en el carrito
+
       return state.map(item => {
         if (item.id === action.payload.id) {
           return { ...item, quantity: action.payload.quantity };
